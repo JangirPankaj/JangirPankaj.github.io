@@ -57,6 +57,61 @@
 				font-size:50px;
 			  }
 			}
+			.dot {
+			  height: 15px;
+			  width: 15px;
+			  background-color: #bbb;
+			  border-radius: 50%;
+			  display: inline-block;
+			}
+			.d1{
+				background:blue;
+			}
+			.d2{
+				background:red;
+			}
+			.d3{
+				background:yellow;
+			}
+			.d4{
+				background:#67F967;
+			}
+			span {
+			  position: absolute;
+			  width: 20px;
+			  height: 20px;
+			  background: green;
+			  opacity: 0.5;
+			  border-radius: 20px;
+			  animation: snake 1s infinite ease-in-out;
+			  
+			}
+
+			span:nth-child(2){
+			  left: 20px;
+			  animation-delay: 0.2s;
+			}
+
+			span:nth-child(3){
+			  left: 40px;
+			  animation-delay: 0.4s;
+			}
+
+			span:nth-child(4){
+			  left: 60px;
+			  animation-delay: 0.6s;
+			}
+
+			span:nth-child(5){
+			  left: 80px;
+			  animation-delay: 0.8s;
+			}
+
+			@keyframes snake {
+			  0% {opacity: 0.9; transform:translateY(0px);}
+				50% {opacity: .9; transform: translateY(-10px);}
+				100%  {opacity: 0.9; transform:translateY(0px);}
+			}
 		</style>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -72,22 +127,33 @@
 				</div>
 				<div class="col-md-6" style="margin-top: 45;">
 					<div class="flip-card" style="height:270;width:210">
-					  <div class="flip-card-inner" style="height:270;width:210">
-						<div class="flip-card-front" style="height:270;width:210">
-							<img src="img/DSC_0524_1.jpg"  style="border: solid;" height=270 width="210">
+						  <div class="flip-card-inner" style="height:270;width:210">
+							<div class="flip-card-front" style="height:270;width:210">
+								<img src="img/DSC_0524_1.jpg"  style="border: solid;" height=270 width="210">
+							</div>
+							<div class="flip-card-back">
+								<br>
+								<h1>Pankaj Jangir</h1>
+								<br>
+								<p>Jr .Net Developer</p>
+								<p></p>
+							</div>
+							</div>
+						<i onclick='Clrs()' class="fa fa-volume-up" style="font-size:24px;color:red"></i>
+						<br><br>
+						<div id="start-button" style="display:none;">
+							<span class="d1 dot" ></span>
+							<span class="d2 dot"></span>
+							<span class="d3 dot"></span>
+							<span class="d4 dot"></span>
 						</div>
-						<div class="flip-card-back">
-							<br>
-							<h1>Pankaj Jangir</h1>
-							<br>
-							<p>Jr .Net Developer</p>
-							<p></p>
+						<div id="default-button" >
+							<p class="dot" ></p>
+							<p class="dot"></p>
+							<p class="dot"></p>
+							<p class="dot"></p>
 						</div>
-						</div>
-					<i onclick='Clrs()' class="fa fa-volume-up" style="font-size:24px;color:red"></i>
-					<br>
-					<button id="start-button" >Start Listening</button>
-				</div>
+					</div>
 			</div>
 			<div>
 				<h3 class='data_headers'>Employment</h3>
@@ -162,9 +228,13 @@
 						console.log(eventName, e);
 					};
 				});
-				document.querySelector('#start-button').innerHTML = 'Listening...';
+				//document.querySelector('#start-button').innerHTML = 'Listening...';
+				$('#default-button').hide();
+				$('#start-button').show();
 				recognition.onend = function() {
-					document.querySelector('#start-button').innerHTML = 'Start Listening';
+					//document.querySelector('#start-button').innerHTML = 'Start Listening';
+					$('#default-button').show();
+					$('#start-button').hide();
 				};
 				recognition.onresult = function() {
 					//document.querySelector('#demo-echo').textContent = event.results[0][0].transcript;
@@ -173,10 +243,10 @@
 					var str = color;
 					// Count the number of colors passed to this array.
 					// Based on that change the style.
-					// Use multiple style based on if conditions.
+					// Use multiple style based on if conditions..
 					var res = str.split(" ");
 					$('.bg_bdy').css("background-color",res[0]);
-					$('#data_headers').css("background",res[1]);
+					$('.data_headers').css("color",res[1]);
 				};
 			};
 		</script>
