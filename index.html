@@ -251,8 +251,21 @@
 					// Based on that change the style.
 					// Use multiple style based on if conditions..
 					var res = str.split(" ");
-					$('.bg_bdy').css("background-color",res[0]);
-					$('.data_headers').css("color",res[1]);
+					if (res.length == 2){
+						$('.bg_bdy').css("background-color",res[0]);
+						$('.data_headers').css("color",res[1]);
+					}
+					else if (res.length == 3){ 
+						$('.bg_bdy').css("background-color",res[0]);
+						$('.data_headers').css("color",res[1]);
+						$('.col-md-6').css("color",res[2]);
+					}
+					else if (res.length == 4){ 
+						$('.bg_bdy').css("background-color",res[0]);
+						$('.data_headers').css("color",res[1]);
+						$('.col-md-6').css("color",res[2]);
+						$('ul > li').css("color",res[2]);
+					}
 				};
 			};
 		</script>
