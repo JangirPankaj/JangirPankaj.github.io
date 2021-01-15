@@ -9,6 +9,15 @@
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 		<style>
+		canvas {
+				cursor: pointer;
+				display: block;
+				left: 0;
+				position: absolute;
+				top: 0;
+			background: url(https://goo.gl/8qAW1D);
+		}
+
 		.flip-card {
 			  background-color: transparent;
 			  width: 300px;
@@ -120,6 +129,7 @@
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script src="js/f.js"></script>
 	</head>
 	<body class='bg_bdy'>
 		<div class="container" style="width: 800;">
@@ -127,7 +137,8 @@
 				<div class="col-md-6" style="margin-top: 45;">
 					<h3 style="color: rebeccapurple">Hello, I'm</h2>
 					<h1 class="">Pankaj Jangir<h1>
-					<h4>Jr .Net Developer</h4>
+					<h4>Net Developer</h4>
+					<input type="hidden" id="mode" value="1" >
 				</div>
 				<div class="col-md-6" style="margin-top: 45;">
 					<div class="flip-card" style="height:270;width:210">
@@ -139,7 +150,7 @@
 								<br>
 								<h1>Pankaj Jangir</h1>
 								<br>
-								<p>Jr .Net Developer</p>
+								<p>Jr .Net Developer</p><div><i class="fa fa-lightbulb-o" aria-hidden="true"></i></div>
 								<p></p>
 							</div>
 						</div>
@@ -271,6 +282,20 @@
 					}
 				};
 			};
+			
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+				})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+				ga('create', 'UA-16233284-1', 'auto');
+				ga('send', 'pageview');
 		</script>
     </body>
 </html>
